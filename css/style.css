@@ -1,0 +1,66 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    height: 100%;
+    margin-left: -15px;
+}
+
+.container-fluid, .row {
+    height: 100%;
+}
+
+@-moz-document url-prefix() {
+    fieldset {
+        display: table-cell;
+    }
+}
+
+
+/* tablets and desktop */
+
+@media only screen and (min-width: 361px) {
+    p {
+        margin-bottom: 15px;
+        line-height: 20px;
+    }
+    h1, h3, p {
+        font-family: 'Open Sans', sans-serif;
+    }
+    ul {
+        list-style: none;
+    }
+    .credits {
+        font-size: small;
+    }
+    .tweet-button {
+        padding-top: 5px;
+    }
+    #control {
+        background-color: #91b6f2;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 6%;
+        text-align: center;
+    }
+    .infowindow {
+        font-size: large;
+    }
+    #totals {
+        background-color: white;
+        text-align: center;
+        padding: 5px;
+    }
+    #chartContainer {
+        width: 80%;
+    }
+    #chart-prompt {
+        text-align: center;
+        position: relative;
+        left: 30px;
+        top: 200px;
+    }
+}

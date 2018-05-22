@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>San Fran Health Scores</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="icon"
+      type="image/png"
+      href="pngs/roach.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <script language="javascript" src="js/seattle.js" type="text/javascript"></script>
+
+
+</head>
+
+<body>
+    <!-- Facebook share/like script -->
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- End FB script -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2" id="control">
+                <h1>San Francisco Risky Restaurants</h1>
+
+                    <p>
+                        <b>Map It</b>
+                    </p>
+                    <table class="table-condensed table-borderless" align="center">
+                        <tr>
+                            <td><i class="fa fa-frown-o fa-2x" aria-hidden="true"></i><br>
+                                <button type="button" name="button" class="btn btn-default btn-block"
+                                        onclick="deleteMarkers();populateInspectionRecordArray('/data/highrisk.json');">High Risk
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-meh-o fa-2x" aria-hidden="true"></i><br>
+                                <button type="button" name="button" class="btn btn-default btn-block"
+                                        onclick="deleteMarkers();populateInspectionRecordArray('/data/medrisk.json');">Moderate Risk</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-smile-o fa-2x" aria-hidden="true"></i><br>
+                                <button type="button" name="button" class="btn btn-default btn-block"
+                                        onclick="deleteMarkers();populateInspectionRecordArray('/data/lowrisk.json');">Low Risk</button>
+                            </td>
+                        </tr>
+                    </table>
+                <br>
+                <div><p><a href="/charts.html">Raw Data</a> </p></div>
+                <br>
+                <div>
+                    <p><a href="https://www.healthdata.gov/dataset/restaurant-scores-lives-standard" target="_blank">Risk Information</a></p>
+                </div>
+
+                <br>
+                <div class="credits">
+                    <p>
+                        Created by <br><a href="http://jreitman.me">Joe Reitman</a>
+                    </p>
+                    <p>
+                        Hosted by <br><a href="https://surge.sh/">surge</a>
+                    </p>
+                </div>
+                <div class="fb-like" data-href="http://seattle911live.surge.sh/index.html" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+                <div class="tweet-button">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Check out this cool site!" data-show-count="false">Tweet</a>
+                    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+            </div>
+            <div class="col-md-10" id="map">
+            </div>
+            <script src="https://maps.googleapis.com/maps/api/js?&callback=initMap" async defer>
+            </script>
+        </div>
+    </div>
+
+</body>
+
+</html>
